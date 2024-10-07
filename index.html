@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بررسی دامنه</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>بررسی دامنه‌ها</h1>
+        <form method="post">
+            <input type="text" name="domains" placeholder="دامنه‌ها را وارد کنید (با ویرگول جدا کنید)">
+            <button type="submit">بررسی</button>
+        </form>
+        <div>
+            {% if available %}
+                <h2>دامنه‌های موجود:</h2>
+                <ul>
+                    {% for domain in available %}
+                        <li>{{ domain }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
